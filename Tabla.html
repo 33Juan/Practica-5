@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        
+    </style>
+</head>
+ 
+<body>
+    <h3>Crear tabla dinamica :</h3><br>
+
+    <input id="colum" type="number" name="Columnas">
+    <label for="Columnas">Columnas</label><br><br>
+
+    <input id="row" type="number" name="Filas">
+    <label for="Filas">Filas</label><br><br>
+
+    <input type="button" value="Crear Tabla" onclick="crearTabla()"><br><br>
+
+    <h3>Borrar contenido celda :</h3><br>
+
+    <input id="columB" type="number" name="col">
+    <label for="col">Columnas</label><br><br>
+
+    <input id="rowB" type="number" name="row">
+    <label for="row">Filas</label><br><br>
+
+    <input id="borrar" type="button" value="Borrar texto celda" onclick="borraTetxo()"><br><br>
+
+
+
+    <script>
+    function crearTabla() {
+        var col = document.getElementById("colum").value;
+        var filas = document.getElementById("row").value;
+
+        var body = document.getElementsByTagName("body")[0];
+        var tblBody = document.createElement("tbody");
+        var tabla=document.createElement("table");
+    
+        for(i=0; i<col; i++){
+            var fila=document.createElement("tr");
+
+            for(j=0; j<filas; j++){
+                var celda=document.createElement("td");
+                var textoCelda = document.createTextNode("celda en la fila "+i+", columna "+j);
+                celda.appendChild(textoCelda);
+                fila.appendChild(celda);
+            }
+            tblBody.appendChild(fila);
+
+        }
+            body.appendChild(tabla);
+            tabla.appendChild(tblBody);
+            tabla.setAttribute("border", "2");
+
+    }
+
+    function borraTetxo() {
+        var col = document.getElementById("columB").value;
+        var filas = document.getElementById("rowB").value;
+
+        $(document).ready(function(){
+            $("#borrar").click(function(){
+                if($("tr").eq(col))
+                (this).empty
+            })
+        })
+
+    }
+
+        
+
+
+       
+        
+    </script>
+</body>
+ 
+</html>

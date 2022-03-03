@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>ejercicio</title>
+<head>
+    <meta charset="utf-8">
+    <style>
+        form{
+            border: 1px solid black;
+        }
+
+        input:valid{
+            border: 1px solid black;
+
+        }
+        input:invalid{
+            border: 1px solid red;
+
+        }
+    </style>
+</head>
+ 
+<body>
+    <form  name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post"> <br>
+        Nombre: <input id="demo" type="text" name="fname">  <br>
+        Apellido: <input  type="text" name="apellido">  <br>
+        <label>Sexo:</label>
+        Hombre<input  type="checkbox" name="fname3">  
+        Mujer<input  type="checkbox" name="fname4">  <br>
+
+        <label>Elige</label>
+        <select name="fname5" id="cars">
+            <option value="">Seleccione uno</option>
+            <option value="saab">saab</option>
+            <option value="opel">opel</option>
+        </select><br>
+
+        <label>Introduce un numero: </label>
+        <input id="num"  name="fname6"><br> 
+
+        <label>Introduce solo numeros</label><br>
+        <textarea name="fname7" id="reg" cols="30" rows="10"></textarea><br>
+
+        <label>Email</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <input type="submit" value="Enviar" onclick="myFunction()">
+    </form>
+
+
+    <script>
+        function validateForm() {
+            let x = document.forms["myForm"]["fname"].value;
+            if (x == "") {
+                //document.getElementById("demo").style.border = "1px solid red";
+
+                alert("ADVERTENCIA! El campo nombre no lo puedes dejar en blanco");
+                return false;
+            }
+        
+        }
+
+        function myFunction() {
+            let y=document.getElementById("num").value;
+
+            if (isNaN(y)) 
+                alert("El campo numero no es un numero");
+            
+        }
+
+        //Solucion Alvaro
+        /*let reg = /0-9/;
+        const validateForms = () => (document.myForm.texto.value.match(/[0123456789]/))?false:true;
+        
+        let y= document.forms[0]["email"].value;
+        if(!/^\d$/.test(x)) {
+            alert("must be filled out")
+            return false;
+        }
+
+        let apellido = document.forms["myForm"]["apellido"].value;
+        if ((apellido == "") || (apellido=/^\w*$/)){
+            document.forms["myForm"]["apellido"].style.borderColor= "red";
+            return false;
+        }*/
+    </script>
+
+
+</body>
+ 
+</html>
